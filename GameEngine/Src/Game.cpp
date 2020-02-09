@@ -7,12 +7,15 @@
 //
 
 #include "Game.hpp"
+#include "TextureManager.hpp"
 
 SDL_Texture* playerTex;
 SDL_Rect srcR, destR;
 
+// construtor
 Game::Game()
 {}
+// desconstrutor
 Game::~Game()
 {}
 
@@ -47,9 +50,7 @@ void Game::init(const char *tittle, int xpos, int ypos, int width, int height, b
         isRunning = false;
     }
     
-    SDL_Surface* tmpSurface = IMG_Load("/Users/bakudas/Documents/git/GameEngine/GameEngine/Assets/player.png");
-    playerTex = SDL_CreateTextureFromSurface(renderer, tmpSurface);
-    SDL_FreeSurface(tmpSurface);
+    playerTex = TextureManager::LoadTexture("/Users/bakudas/Documents/git/GameEngine/GameEngine/Assets/player.png", renderer);
     
 }
 
