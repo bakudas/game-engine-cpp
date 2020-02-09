@@ -72,8 +72,9 @@ void Game::handleEvents()
 void Game::update()
 {
     ctn++;
-    destR.w = 128;
-    destR.h = 128;
+    destR.w = 64;
+    destR.h = 64; 
+    destR.y = ctn;
     
     std::cout << ctn << std::endl;
     
