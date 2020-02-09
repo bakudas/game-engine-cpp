@@ -50,7 +50,7 @@ void Game::init(const char *tittle, int xpos, int ypos, int width, int height, b
         isRunning = false;
     }
     
-    player = new GameObject("/Users/bakudas/Documents/git/GameEngine/GameEngine/Assets/player.png", renderer);
+    player = new GameObject("/Users/bakudas/Documents/git/GameEngine/GameEngine/Assets/player.png", renderer, 0, 0);
     
 }
 

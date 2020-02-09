@@ -12,12 +12,11 @@
 #include "Game.hpp"
 #include <stdio.h>
 
-#endif /* GameObject_hpp */
 
 class GameObject {
     
 public:
-    GameObject(const char* textureSheet, SDL_Renderer* ren);
+    GameObject(const char* textureSheet, SDL_Renderer* ren, int x, int y);
     ~GameObject();
     
     void update();
@@ -34,3 +33,5 @@ private:
     
     
 };
+
+#endif /* GameObject_hpp */
