@@ -8,9 +8,9 @@
 
 #include "Game.hpp"
 #include "TextureManager.hpp"
+#include "GameObject.hpp"
 
-SDL_Texture* playerTex;
-SDL_Rect srcR, destR;
+GameObject* player;
 
 // construtor
 Game::Game()
@@ -50,7 +50,7 @@ void Game::init(const char *tittle, int xpos, int ypos, int width, int height, b
         isRunning = false;
     }
     
-    playerTex = TextureManager::LoadTexture("/Users/bakudas/Documents/git/GameEngine/GameEngine/Assets/player.png", renderer);
+    player = new GameObject("/Users/bakudas/Documents/git/GameEngine/GameEngine/Assets/player.png", renderer);
     
 }
 
@@ -72,12 +72,8 @@ void Game::handleEvents()
 
 void Game::update()
 {
-    ctn++;
-    destR.w = 64;
-    destR.h = 64; 
-    destR.y = ctn;
     
-    std::cout << ctn << std::endl;
+    player->update();
     
 }
 
@@ -86,7 +82,7 @@ void Game::render()
 {
     SDL_RenderClear(renderer);
     // Adicionar aqui tudo o que vai ser renderizado
-    SDL_RenderCopy(renderer, playerTex, NULL, &destR);
+    player->render();
     SDL_RenderPresent(renderer); 
     
 }
