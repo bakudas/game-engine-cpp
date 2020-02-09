@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9754A6C423EF613E00BA78AF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9754A6C323EF613E00BA78AF /* main.cpp */; };
+		9754A6CF23EF63A000BA78AF /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9754A6CE23EF63A000BA78AF /* SDL2.framework */; };
+		9754A6DC23EF9B2200BA78AF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9754A6DA23EF9B2100BA78AF /* main.cpp */; };
+		9754A6E023EF9C4F00BA78AF /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9754A6DF23EF9C4F00BA78AF /* SDL2_image.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +26,12 @@
 
 /* Begin PBXFileReference section */
 		9754A6C023EF613E00BA78AF /* GameEngine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GameEngine; sourceTree = BUILT_PRODUCTS_DIR; };
-		9754A6C323EF613E00BA78AF /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		9754A6CE23EF63A000BA78AF /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
+		9754A6D823EF9B2100BA78AF /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
+		9754A6D923EF9B2100BA78AF /* Game.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Game.hpp; sourceTree = "<group>"; };
+		9754A6DA23EF9B2100BA78AF /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		9754A6DF23EF9C4F00BA78AF /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = ../../../../../Library/Frameworks/SDL2_image.framework; sourceTree = "<group>"; };
+		9754A6E123EF9DE700BA78AF /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +39,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9754A6E023EF9C4F00BA78AF /* SDL2_image.framework in Frameworks */,
+				9754A6CF23EF63A000BA78AF /* SDL2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +52,7 @@
 			children = (
 				9754A6C223EF613E00BA78AF /* GameEngine */,
 				9754A6C123EF613E00BA78AF /* Products */,
+				9754A6CD23EF639F00BA78AF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +67,37 @@
 		9754A6C223EF613E00BA78AF /* GameEngine */ = {
 			isa = PBXGroup;
 			children = (
-				9754A6C323EF613E00BA78AF /* main.cpp */,
+				9754A6DE23EF9B4B00BA78AF /* Assets */,
+				9754A6DD23EF9B3800BA78AF /* Src */,
 			);
 			path = GameEngine;
+			sourceTree = "<group>";
+		};
+		9754A6CD23EF639F00BA78AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9754A6DF23EF9C4F00BA78AF /* SDL2_image.framework */,
+				9754A6CE23EF63A000BA78AF /* SDL2.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9754A6DD23EF9B3800BA78AF /* Src */ = {
+			isa = PBXGroup;
+			children = (
+				9754A6D823EF9B2100BA78AF /* Game.cpp */,
+				9754A6D923EF9B2100BA78AF /* Game.hpp */,
+				9754A6DA23EF9B2100BA78AF /* main.cpp */,
+			);
+			path = Src;
+			sourceTree = "<group>";
+		};
+		9754A6DE23EF9B4B00BA78AF /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				9754A6E123EF9DE700BA78AF /* player.png */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,7 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9754A6C423EF613E00BA78AF /* main.cpp in Sources */,
+				9754A6DC23EF9B2200BA78AF /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,8 +277,15 @@
 		9754A6C823EF613E00BA78AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VU8CAHZ82R;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_NO_COMMON_BLOCKS = NO;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -248,8 +293,15 @@
 		9754A6C923EF613E00BA78AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VU8CAHZ82R;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_NO_COMMON_BLOCKS = NO;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
